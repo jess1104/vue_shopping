@@ -1,4 +1,5 @@
 <template>
+  <LoadingA :active="isLoading"></LoadingA>
   <div class="text-end">
     <div class="btn btn-primary" type="button" @click="openModal(true)">新增一個產品</div>
   </div>
@@ -58,7 +59,10 @@ export default {
         // 多圖
         imagesUrl: [],
       },
+      // 是否為新產品
       isNew: false,
+      // 是否讀取中
+      isLoading:false
     };
   },
   components: {
@@ -69,9 +73,13 @@ export default {
     // 資料表
     getProducts() {
       const api = `${process.env.VUE_APP_URL}/api/${process.env.VUE_APP_PATH}/admin/products`;
-      console.log(api);
+      // console.log(api);
+      // 讀取中
+      this.isLoading = true;
       this.$http.get(api).then((res) => {
         console.log(res.data);
+        // api回傳回來讀取關閉
+        this.isLoading = false;
         this.products = res.data.products;
         this.pagination = res.data.pagination;
       });
