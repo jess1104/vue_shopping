@@ -1,3 +1,4 @@
+// 要引用node_modules/bootstrap/js/dist/modal
 import Modal from "bootstrap/js/dist/modal";
 
 export default {

@@ -37,17 +37,22 @@
       </tr>
     </tbody>
   </table>
+  <!-- 分頁元件 -->
+  <Pagination :pages="pagination" @emit-pages="getProducts"></Pagination>
+  <!-- 彈窗編輯元件 -->
   <ProductModal
     ref="productModal"
     :product="tempProduct"
     @update-product="updateProduct"
   ></ProductModal>
+  <!-- 刪除產品元件 -->
   <DelModal ref="delModal" :item="tempProduct" @del-product="delProduct"></DelModal>
 </template>
 
 <script>
 import ProductModal from "@/components/ProductModal.vue";
 import DelModal from "@/components/DelModal.vue";
+import Pagination from "@/components/Pagination.vue";
 
 export default {
   data() {
@@ -62,27 +67,38 @@ export default {
       // 是否為新產品
       isNew: false,
       // 是否讀取中
-      isLoading:false
+      isLoading: false,
     };
   },
   components: {
     ProductModal,
     DelModal,
+    Pagination,
   },
   methods: {
     // 資料表
-    getProducts() {
-      const api = `${process.env.VUE_APP_URL}/api/${process.env.VUE_APP_PATH}/admin/products`;
-      // console.log(api);
+    getProducts(page = 1) {
+      const api = `${process.env.VUE_APP_URL}/api/${process.env.VUE_APP_PATH}/admin/products?page=${page}`;
+      // console.log(api);/products?page=2
       // 讀取中
       this.isLoading = true;
-      this.$http.get(api).then((res) => {
-        console.log(res.data);
-        // api回傳回來讀取關閉
-        this.isLoading = false;
-        this.products = res.data.products;
-        this.pagination = res.data.pagination;
-      });
+      this.$http
+        .get(api)
+        .then((res) => {
+          console.log(res.data);
+          // api回傳回來讀取關閉
+          this.isLoading = false;
+          this.products = res.data.products;
+          this.pagination = res.data.pagination;
+          // "pagination": {
+          //   "total_pages": 1,
+          //   "current_page": 1,
+          //   "has_pre": false,
+          //   "has_next": false,
+          //   "category": ""
+          // },
+        })
+        .catch((err) => alert(err.response.data.message));
     },
     openModal(isNew, item) {
       if (isNew) {
