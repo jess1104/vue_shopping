@@ -1,4 +1,5 @@
 <template>
+  <LoadingA :active="isLoading"></LoadingA>
   <h1>產品列表</h1>
   <div class="container">
     <!-- row決定一列有幾個 -->
@@ -12,7 +13,7 @@
             <router-link :to="`/FrountProduct/${product.id}`" class="btn btn-primary"
               >去商品</router-link
             >
-            <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+            <a href="#" class="btn btn-info" @click.prevent="addToCart(product.id)">加入購物車</a>
           </div>
         </div>
       </div>
@@ -21,10 +22,14 @@
 </template>
 
 <script>
+// 將emitter.js匯入使用
+import emitter from "@/methods/emitter";
+
 export default {
   data() {
     return {
       products: [],
+      isLoading: false,
     };
   },
   methods: {
@@ -33,6 +38,24 @@ export default {
         .get(`${process.env.VUE_APP_URL}/api/${process.env.VUE_APP_PATH}/products/all`)
         .then((res) => {
           this.products = res.data.products;
+        });
+    },
+    // 加入購物車
+    addToCart(id, qty = 1) {
+      this.isLoading = true;
+      const data = {
+        product_id: id,
+        qty,
+      };
+      console.log(data);
+      this.$http
+        .post(`${process.env.VUE_APP_URL}/api/${process.env.VUE_APP_PATH}/cart`, { data })
+        .then((res) => {
+          this.isLoading = false;
+          console.log(res);
+          alert(res.data.message);
+          // 傳給FrountNavbar去重撈加入購物車列表
+          emitter.emit("get-cart");
         });
     },
   },

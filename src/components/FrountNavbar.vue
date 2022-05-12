@@ -34,6 +34,9 @@
 </template>
 
 <script>
+// 將emitter.js匯入使用
+import emitter from "@/methods/emitter"
+
 export default {
   data() {
     return {
@@ -55,6 +58,10 @@ export default {
   },
   mounted() {
     this.getCart();
+    // emitter監聽行為都會放在mounted
+    emitter.on('get-cart',() => {
+      this.getCart();
+    })
   },
 };
 </script>
