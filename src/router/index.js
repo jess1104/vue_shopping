@@ -19,7 +19,7 @@ const routes = [
       // 產品頁面
       {
         path: "FrontProducts",
-        component: () => import("../views/frount/FrontProducts"),
+        component: () => import("../views/frount/FrountProducts"),
       },
       // 產品細節頁面
       {

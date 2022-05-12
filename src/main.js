@@ -3,11 +3,16 @@ import axios from "axios";
 import VueAxios from "vue-axios";
 import App from "./App.vue";
 import router from "./router";
+
+// 引用bootstrap Icons
+import "bootstrap-icons/font/bootstrap-icons.css";
+
 // 將千分位與時間註冊為全域使用
 import { currency, date } from "@/methods/filters";
+
 // Import loading元件
 import Loading from "vue3-loading-overlay";
-// Import stylesheet
+// Import loading stylesheet
 import "vue3-loading-overlay/dist/vue3-loading-overlay.css";
 
 // createApp(App).use(router).mount("#app");
