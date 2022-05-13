@@ -26,6 +26,11 @@ const routes = [
         path: "FrountProduct/:id",
         component: () => import("../views/frount/FrountProduct"),
       },
+      // 購物車頁面
+      {
+        path: "FrountCart",
+        component: () => import("../views/frount/FrountCart"),
+      },
     ],
   },
   {

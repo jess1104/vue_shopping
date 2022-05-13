@@ -34,9 +34,11 @@ export default {
   },
   methods: {
     getProducts() {
+      this.isLoading = true;
       this.$http
         .get(`${process.env.VUE_APP_URL}/api/${process.env.VUE_APP_PATH}/products/all`)
         .then((res) => {
+          this.isLoading = false;
           this.products = res.data.products;
         });
     },
@@ -47,7 +49,7 @@ export default {
         product_id: id,
         qty,
       };
-      console.log(data);
+      // console.log(data);
       this.$http
         .post(`${process.env.VUE_APP_URL}/api/${process.env.VUE_APP_PATH}/cart`, { data })
         .then((res) => {

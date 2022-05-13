@@ -25,8 +25,10 @@
           </li>
         </ul>
         <button type="button" class="btn cart">
-          <i class="bi bi-cart4"></i>
-          <span class="badge rounded-pill bg-danger cart-num">{{ cartData.carts.length }}</span>
+          <router-link to="/FrountCart">
+            <i class="bi bi-cart4"></i>
+            <span class="badge rounded-pill bg-danger cart-num">{{ cartData.carts.length }}</span>
+          </router-link>
         </button>
       </div>
     </div>
@@ -35,7 +37,7 @@
 
 <script>
 // 將emitter.js匯入使用
-import emitter from "@/methods/emitter"
+import emitter from "@/methods/emitter";
 
 export default {
   data() {
@@ -51,7 +53,7 @@ export default {
       this.$http
         .get(`${process.env.VUE_APP_URL}/api/${process.env.VUE_APP_PATH}/cart`)
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           this.cartData = res.data.data;
         });
     },
@@ -59,9 +61,9 @@ export default {
   mounted() {
     this.getCart();
     // emitter監聽行為都會放在mounted
-    emitter.on('get-cart',() => {
+    emitter.on("get-cart", () => {
       this.getCart();
-    })
+    });
   },
 };
 </script>
