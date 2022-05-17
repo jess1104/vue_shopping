@@ -2,7 +2,7 @@
   <LoadingA :active="isLoading"></LoadingA>
   <div class="container">
     <div class="text-end">
-      <button class="btn btn-outline-danger" type="button">清空購物車</button>
+      <button class="btn btn-outline-danger" @click="removeAllCart" type="button">清空購物車</button>
     </div>
     <table class="table align-middle">
       <thead>
