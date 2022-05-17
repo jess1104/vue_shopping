@@ -31,6 +31,11 @@ const routes = [
         path: "FrountCart",
         component: () => import("../views/frount/FrountCart"),
       },
+      // 結帳確認頁面
+      {
+        path: "FrountCartCheck",
+        component: () => import("../views/frount/FrountCartCheck"),
+      },
     ],
   },
   {

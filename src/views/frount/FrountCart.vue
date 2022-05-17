@@ -2,7 +2,9 @@
   <LoadingA :active="isLoading"></LoadingA>
   <div class="container">
     <div class="text-end">
-      <button class="btn btn-outline-danger" @click="removeAllCart" type="button">清空購物車</button>
+      <button class="btn btn-outline-danger" @click="removeAllCart" type="button">
+        清空購物車
+      </button>
     </div>
     <table class="table align-middle">
       <thead>
@@ -75,6 +77,23 @@
               </tr> -->
       </tfoot>
     </table>
+    <div class="row justify-content-end">
+      <div class="col-lg-3 mb-3">
+        <button class="btn btn-outline-dark w-100" @click="goProductsPage" type="button">
+          繼續購物
+        </button>
+      </div>
+      <div class="col-lg-3">
+        <button
+          class="btn btn-primary w-100"
+          type="button"
+          @click="goCheckCart"
+          :disabled="cartData.total === 0"
+        >
+          確認訂單，結帳
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -165,6 +184,12 @@ export default {
           alert(err.response.data.message);
           this.getCart();
         });
+    },
+    goProductsPage() {
+      this.$router.push("/FrontProducts");
+    },
+    goCheckCart() {
+      this.$router.push("/FrountCartCheck");
     },
   },
   mounted() {
