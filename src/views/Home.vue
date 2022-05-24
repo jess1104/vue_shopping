@@ -1,18 +1,92 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <div class="position-relative mb-5 top-container">
+      <div
+        class="position-absolute"
+        style="
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          background-image: url(https://images.unsplash.com/photo-1637666725970-53822683726a?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170);
+          background-position: center center;
+          opacity: 0.1;
+        "
+      ></div>
+      <div class="container d-flex flex-column" style="min-height: 100vh">
+        <div class="row justify-content-center my-auto top-text">
+          <div class="col-md-4 text-center">
+            <h2>球鞋市集</h2>
+            <p class="text-muted mb-2">最新最潮的球鞋就在Hao's Shop</p>
+            <button class="btn btn-dark rounded-1 mt-6">去商品</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container my-7">
+      <div class="row">
+        <div class="col-md-6">
+          <img
+            src="https://sneakernews.com/wp-content/uploads/2022/05/Balenciaga-adidas-Triple-S-White-Black-5.jpg"
+            alt=""
+            class="img-fluid"
+          />
+        </div>
+        <div class="col-md-4 m-auto text-center">
+          <h4 class="mt-4">The Entire Balenciaga x adidas</h4>
+          <p class="text-muted">
+            In recent years, adidas has taken a keen interest in luxury, teaming up with brands like Prada and soon Gucci. And today, yet another Kering label, Balenciaga, has dropped their own collaborative collection, complete with a co-branded Triple S as well as a host of athletic apparel.
+          </p>
+        </div>
+      </div>
+      <div class="row flex-row-reverse justify-content-between mt-4">
+        <div class="col-md-6">
+          <img
+            src="https://sneakernews.com/wp-content/uploads/2022/05/Nike-Air-Max-Terrascape-97-DJ5019-001-8.jpg?w=1140"
+            alt=""
+            class="img-fluid"
+          />
+        </div>
+        <div class="col-md-4 m-auto text-center">
+          <h4 class="mt-4">Air Max Terrascape 97 Dresses Up In “Oreo” Colors</h4>
+          <p class="text-muted">
+           The Nike Air Max Terrascape 97 isn’t an entirely new silhouette, but the trail-inspired iteration of Christian Tresser’s 25-year-old design delivers a breath of fresh air to the Swoosh’s 1990s lineup.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- fotter -->
+    <div class="bg-dark py-5 mt-5">
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-between text-white mb-md-7 mb-4">
+          <a class="text-white h4" href="./index.html">LOGO</a>
+          <ul class="d-flex list-unstyled mb-0 h4">
+            <li><a href="#" class="text-white mx-3"><i class="bi bi-github"></i></a></li>
+            <li><a href="#" class="text-white ms-3"><i class="bi bi-code-square"></i></a></li>
+          </ul>
+        </div>
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end align-items-start text-white">
+          <div class="mb-md-0 mb-1">
+            <p class="mb-0">jess1104@hotmail.com.tw</p>
+          </div>
+          <p class="mb-0">© 2022 僅供練習使用</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
-
 export default {
   name: "Home",
-  components: {
-    HelloWorld,
-  },
 };
 </script>
+
+<style scoped>
+.top-container{
+  height: 50vh;
+}
+.top-text{
+  height: 60vh;
+}
+</style>

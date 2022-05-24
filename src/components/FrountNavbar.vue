@@ -25,7 +25,7 @@
           </li>
         </ul>
         <button type="button" class="btn cart">
-          <router-link to="/FrountCart">
+          <router-link class="text-black" to="/FrountCart">
             <i class="bi bi-cart4"></i>
             <span class="badge rounded-pill bg-danger cart-num">{{ cartData.carts.length }}</span>
           </router-link>
