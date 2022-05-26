@@ -1,19 +1,70 @@
 <template>
+  <!-- 讀取套件 -->
   <LoadingA :active="isLoading"></LoadingA>
-  <h1>產品列表</h1>
-  <div class="container">
-    <!-- row決定一列有幾個 -->
-    <div class="row row-cols-1 row-cols-lg-4 g-3">
-      <div class="col" v-for="product in products" :key="product.id">
-        <div class="card h-100">
-          <img :src="product.imageUrl" class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">{{ product.title }}</h5>
-            <p class="card-text">原價:{{ product.origin_price }}特價:{{ product.price }}</p>
-            <router-link :to="`/FrountProduct/${product.id}`" class="btn btn-primary"
-              >去商品</router-link
-            >
-            <a href="#" class="btn btn-info" @click.prevent="addToCart(product.id)">加入購物車</a>
+  <!-- 選擇品牌導覽列 -->
+  <nav
+    class="navbar navbar-expand-lg navbar-light justify-content-center align-items-center d-flex"
+  >
+    <div class="navbar-nav flex-row overflow-auto navbar-custom-scroll">
+      <a
+        class="nav-item nav-link text-nowrap px-2"
+        href="#"
+        @click.prevent="selectCategory('')"
+        :class="{ active: brand === '' }"
+        >| All |</a
+      >
+      <a
+        class="nav-item nav-link text-nowrap px-2"
+        @click.prevent="selectCategory('Nike')"
+        href="#"
+        :class="{ active: brand === 'Nike' }"
+        >| Nike |</a
+      >
+
+      <a
+        class="nav-item nav-link text-nowrap px-2"
+        @click.prevent="selectCategory('Adidas')"
+        href="#"
+        :class="{ active: brand === 'Adidas' }"
+        >| Adidas |</a
+      >
+      <a
+        class="nav-item nav-link text-nowrap px-2"
+        @click.prevent="selectCategory('New Balance')"
+        href="#"
+        :class="{ active: brand === 'New Balance' }"
+        >| New Balance |</a
+      >
+    </div>
+  </nav>
+  <div class="container mt-md-5 mt-3 mb-7">
+    <div class="row">
+      <div class="col-md-3" v-for="product in products" :key="product.id">
+        <div class="card border-0 mb-4 position-relative position-relative">
+          <img :src="product.imageUrl" class="card-img-top rounded-0" alt="..." />
+          <div class="card-body p-0">
+            <h6 class="mb-0 mt-3 hh">
+              <router-link
+                :to="`/FrountProduct/${product.id}`"
+                class="text-decoration-none link-dark"
+                >{{ product.title }}</router-link
+              >
+            </h6>
+            <p class="mt-3">
+              <strong>NT${{ product.price }}</strong
+              ><span class="text-muted ms-1 small"
+                ><del>NT${{ product.origin_price }}</del></span
+              >
+            </p>
+            <div>
+              <button
+                type="button"
+                class="btn btn-outline-secondary ms-1 w-100"
+                @click.prevent="addToCart(product.id)"
+              >
+                加入購物車
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -30,6 +81,7 @@ export default {
     return {
       products: [],
       isLoading: false,
+      brand: "",
     };
   },
   methods: {
@@ -60,9 +112,30 @@ export default {
           emitter.emit("get-cart");
         });
     },
+    selectCategory(brand) {
+      this.isLoading = true;
+      this.$http
+        .get(
+          `${process.env.VUE_APP_URL}/api/${process.env.VUE_APP_PATH}/products?category=${brand} `
+        )
+        .then((res) => {
+          this.isLoading = false;
+          this.products = res.data.products;
+          this.brand = brand;
+        });
+    },
   },
   mounted() {
     this.getProducts();
   },
 };
 </script>
+
+<style scoped>
+.small {
+  font-size: small;
+}
+.hh {
+  height: 50px;
+}
+</style>

@@ -1,7 +1,7 @@
 <template>
   <LoadingA :active="isLoading"></LoadingA>
   <div class="container">
-    <div class="text-end">
+    <div class="text-end mt-3">
       <button class="btn btn-outline-danger" @click="removeAllCart" type="button">
         清空購物車
       </button>
@@ -85,7 +85,7 @@
       </div>
       <div class="col-lg-3">
         <button
-          class="btn btn-primary w-100"
+          class="btn btn-outline-secondary w-100"
           type="button"
           @click="goCheckCart"
           :disabled="cartData.total === 0"

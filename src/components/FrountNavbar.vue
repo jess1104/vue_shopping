@@ -1,7 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-md navbar-light bg-light">
     <div class="container-fluid">
-      <router-link class="navbar-brand" to="/">阿豪商店</router-link>
+      <router-link class="navbar-brand logo-1" to="/"
+        ><img src="../assets/logo1.png" class="w-100" alt=""
+      /></router-link>
       <!-- RWD漢堡條 -->
       <button
         class="navbar-toggler"
@@ -69,6 +71,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.logo-1 {
+  width: 150px;
+}
 .cart {
   position: relative;
   margin: 5px;
