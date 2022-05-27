@@ -28,6 +28,7 @@
         </div>
 
         <div class="text-end mt-4">
+          <button class="btn btn-lg btn-secondary btn-block me-2" @click.prevent="$router.push('/')">前台首頁</button>
           <button class="btn btn-lg btn-primary btn-block" type="submit">登入</button>
         </div>
       </div>

@@ -137,6 +137,9 @@
 </template>
 
 <script>
+// 將emitter.js匯入使用
+import emitter from "@/methods/emitter";
+
 export default {
   data() {
     return {
@@ -182,11 +185,15 @@ export default {
       this.$http
         .post(`${process.env.VUE_APP_URL}/api/${process.env.VUE_APP_PATH}/order`, { data: order })
         .then((response) => {
-          alert(response.data.message);
+          alert(`${response.data.message},繼續買吧!`);
           // 重整表單
           this.$refs.form.resetForm();
-          this.getCarts();
-          // this.$router.push("/result");
+          this.getCart();
+          // 傳給FrountNavbar去重撈購物車列表
+          emitter.emit("get-cart");
+          setTimeout(() => {
+            this.$router.push("/");
+          }, 2000);
         })
         .catch((error) => {
           alert(error);

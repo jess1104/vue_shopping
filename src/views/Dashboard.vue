@@ -3,7 +3,7 @@
   <Navbar></Navbar>
   <!-- 這個router-view是吃Dashboard.vue裡的子路由Products.vue -->
   <div class="container-fluid">
-    <router-view />
+    <router-view></router-view>
   </div>
 </template>
 

@@ -71,10 +71,6 @@
           <td colspan="4" class="text-end">總計</td>
           <td class="text-end">{{ cartData.total }}</td>
         </tr>
-        <!-- <tr>
-                <td colspan="3" class="text-end text-success">折扣價</td>
-                <td class="text-end text-success">{{ }}</td>
-              </tr> -->
       </tfoot>
     </table>
     <div class="row justify-content-end">

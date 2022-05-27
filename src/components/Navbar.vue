@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar w/ text</a>
+      <router-link to="/dashboard/products" class="navbar-brand" href="#">產品編輯</router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -16,13 +16,13 @@
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="#">Features</a>
+            <router-link to="/dashboard/orders" class="nav-link">訂單</router-link>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#" @click.prevent="logout">登出</a>
           </li>
         </ul>
-        <span class="navbar-text"> Navbar text with an inline element </span>
+        <router-link to="/" class="navbar-brand" href="#">前台首頁</router-link>
       </div>
     </div>
   </nav>
@@ -42,5 +42,8 @@ export default {
       });
     },
   },
+  mounted() {
+    console.log(this.$router);
+  }
 };
 </script>
