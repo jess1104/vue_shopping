@@ -33,32 +33,7 @@
                   placeholder="請輸入圖片連結"
                 />
               </div>
-              <div class="mb-3">
-                <label for="customFile" class="form-label"
-                  >或 上傳圖片
-                  <i class="fas fa-spinner fa-spin"></i>
-                </label>
-                <input type="file" id="customFile" class="form-control" />
-              </div>
-              <img class="img-fluid" alt="" />
-              <!-- 延伸技巧，多圖 -->
-              <div class="mt-5">
-                <div class="mb-3 input-group">
-                  <input
-                    type="url"
-                    class="form-control form-control"
-                    placeholder="請輸入連結"
-                  />
-                  <button type="button" class="btn btn-outline-danger">
-                    移除
-                  </button>
-                </div>
-                <div>
-                  <button class="btn btn-outline-primary btn-sm d-block w-100">
-                    新增圖片
-                  </button>
-                </div>
-              </div>
+              <img class="img-fluid" :src="tempProduct.imageUrl" />
             </div>
             <div class="col-sm-8">
               <div class="mb-3">
@@ -149,23 +124,23 @@
                     :false-value="0"
                     id="is_enabled"
                   />
-                  <label class="form-check-label" for="is_enabled">
-                    是否啟用
-                  </label>
+                  <label class="form-check-label" for="is_enabled"> 是否啟用 </label>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button
-            type="button"
-            class="btn btn-outline-secondary"
-            data-bs-dismiss="modal"
-          >
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
             取消
           </button>
-          <button type="button" class="btn btn-primary" @click="$emit('update-product',tempProduct)">確認</button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            @click="$emit('update-product', tempProduct)"
+          >
+            確認
+          </button>
         </div>
       </div>
     </div>
@@ -180,7 +155,9 @@ export default {
   props: {
     product: {
       type: Object,
-      default() { return {}; },
+      default() {
+        return {};
+      },
     },
   },
   watch: {
@@ -192,7 +169,7 @@ export default {
     return {
       modal: {},
       tempProduct: {
-         // 多圖
+        // 多圖
         imagesUrl: [],
       },
     };

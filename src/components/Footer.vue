@@ -8,7 +8,7 @@
             <a href="#" class="text-white mx-3"><i class="bi bi-github"></i></a>
           </li>
           <li>
-            <a href="#" class="text-white ms-3"><i class="bi bi-code-square"></i></a>
+            <router-link to="/login" class="text-white ms-3"><i class="bi bi-gear"></i></router-link>
           </li>
         </ul>
       </div>

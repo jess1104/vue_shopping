@@ -4,6 +4,8 @@ import VueAxios from "vue-axios";
 import App from "./App.vue";
 import router from "./router";
 
+import 'bootstrap';
+
 // 引用bootstrap Icons
 import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -14,6 +16,9 @@ import { currency, date } from "@/methods/filters";
 import Loading from "vue3-loading-overlay";
 // Import loading stylesheet
 import "vue3-loading-overlay/dist/vue3-loading-overlay.css";
+
+// AOS動態特效
+import "aos/dist/aos.css";
 
 // 匯入 vee-validate 主套件
 import { Field, Form, ErrorMessage, defineRule, configure } from "vee-validate";

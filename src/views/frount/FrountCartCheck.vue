@@ -179,19 +179,18 @@ export default {
     },
     onSubmit() {
       const order = this.form;
-      console.log(order);
-      // this.$http
-      //   .post(`${process.env.VUE_APP_URL}/api/${process.env.VUE_APP_PATH}/order`, { data: order })
-      //   .then((response) => {
-      //     alert(response.data.message);
-      //     // 重整表單
-      //     this.$refs.form.resetForm();
-      //     this.getCarts();
-      //     // this.$router.push("/result");
-      //   })
-      //   .catch((error) => {
-      //     alert(error);
-      //   });
+      this.$http
+        .post(`${process.env.VUE_APP_URL}/api/${process.env.VUE_APP_PATH}/order`, { data: order })
+        .then((response) => {
+          alert(response.data.message);
+          // 重整表單
+          this.$refs.form.resetForm();
+          this.getCarts();
+          // this.$router.push("/result");
+        })
+        .catch((error) => {
+          alert(error);
+        });
     },
     goBackPage() {
       this.$router.go(-1);
