@@ -1,4 +1,6 @@
-# vue_template
+# vue_shopping
+
+## 網站DEMO:https://vue-shopping-topaz.vercel.app/#/
 
 ## Project setup
 ```

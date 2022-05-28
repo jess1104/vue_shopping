@@ -5,7 +5,9 @@
         <a class="text-white h4" href="#">Hao's Shop</a>
         <ul class="d-flex list-unstyled mb-0 h4">
           <li>
-            <a href="https://github.com/jess1104" class="text-white mx-3"><i class="bi bi-github"></i></a>
+            <a href="https://github.com/jess1104" class="text-white mx-3"
+              ><i class="bi bi-github"></i
+            ></a>
           </li>
           <li>
             <router-link to="/login" class="text-white ms-3"
