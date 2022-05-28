@@ -85,7 +85,7 @@ export default {
       this.$http
         .get(api)
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           // api回傳回來讀取關閉
           this.isLoading = false;
           this.products = res.data.products;
@@ -136,8 +136,7 @@ export default {
       }
 
       this.$http[httpMethod](api, { data: this.tempProduct })
-        .then((res) => {
-          console.log(res);
+        .then(() => {
           // 關掉productModal
           this.$refs.productModal.hideModal();
           this.getProducts();

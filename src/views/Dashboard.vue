@@ -18,7 +18,7 @@ export default {
   created() {
     // 取出cookie的token
     const token = document.cookie.replace(/(?:(?:^|.*;\s*)hexToken\s*=\s*([^;]*).*$)|^.*$/, "$1");
-    console.log(token);
+    // console.log(token);
     // 寫入header
     this.$http.defaults.headers.common.Authorization = token;
     // 檢查Authorization是否正確check的api
@@ -26,7 +26,7 @@ export default {
     this.$http
       .post(api, this.user)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (!res.data.success) {
           alert(res.data.message);
           // this.$router.push("/login");

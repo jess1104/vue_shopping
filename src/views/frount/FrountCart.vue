@@ -120,7 +120,7 @@ export default {
     },
     // 刪除產品
     removeCartItem(id) {
-      console.log(id);
+      // console.log(id);
       this.isLoading = true;
       this.$http
         .delete(`${process.env.VUE_APP_URL}/api/${process.env.VUE_APP_PATH}/cart/${id}`)
@@ -158,7 +158,7 @@ export default {
     // 更新產品數量
     updateCartItem(data) {
       this.isLoading = true;
-      console.log(data);
+      // console.log(data);
       // 這邊的id是產品ID
       const cart = {
         product_id: data.product_id,

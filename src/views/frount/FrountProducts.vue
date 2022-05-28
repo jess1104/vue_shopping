@@ -96,7 +96,7 @@ export default {
     },
     // 加入購物車
     addToCart(id, qty = 1) {
-      this.isLoading = true;
+      // this.isLoading = true;
       const data = {
         product_id: id,
         qty,
@@ -106,7 +106,7 @@ export default {
         .post(`${process.env.VUE_APP_URL}/api/${process.env.VUE_APP_PATH}/cart`, { data })
         .then((res) => {
           this.isLoading = false;
-          console.log(res);
+          // console.log(res);
           alert(res.data.message);
           // 傳給FrountNavbar去重撈加入購物車列表
           emitter.emit("get-cart");

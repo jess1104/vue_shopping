@@ -93,13 +93,13 @@ export default {
     openDelOrderModal(item) {
       this.tempOrder = { ...item };
       const delComponent = this.$refs.delModal;
-      console.log(this.$refs);
+      // console.log(this.$refs);
       delComponent.showModal();
     },
     // 刪除訂單
     delOrder() {
       const api = `${process.env.VUE_APP_URL}/api/${process.env.VUE_APP_PATH}/admin/order/${this.tempOrder.id}`;
-      console.log(api);
+      // console.log(api);
       this.isLoading = true;
       this.$http
         .delete(api)

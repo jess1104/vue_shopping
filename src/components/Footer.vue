@@ -2,13 +2,15 @@
   <div class="bg-dark py-5 mt-5">
     <div class="container">
       <div class="d-flex align-items-center justify-content-between text-white mb-md-7 mb-4">
-        <a class="text-white h4" href="./index.html">LOGO</a>
+        <a class="text-white h4" href="#">Hao's Shop</a>
         <ul class="d-flex list-unstyled mb-0 h4">
           <li>
-            <a href="#" class="text-white mx-3"><i class="bi bi-github"></i></a>
+            <a href="https://github.com/jess1104" class="text-white mx-3"><i class="bi bi-github"></i></a>
           </li>
           <li>
-            <router-link to="/login" class="text-white ms-3"><i class="bi bi-gear"></i></router-link>
+            <router-link to="/login" class="text-white ms-3"
+              ><i class="bi bi-gear"></i
+            ></router-link>
           </li>
         </ul>
       </div>
